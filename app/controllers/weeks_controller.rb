@@ -26,7 +26,7 @@ class WeeksController < ApplicationController
   # POST /weeks.json
   def create
     @week = Week.new(week_params)
-    nickname = Nickname.find(params[:id])
+    nickname = Nickname.find(params[:week][:nickname])
     @week.nickname = nickname
     respond_to do |format|
       if @week.save
@@ -42,7 +42,7 @@ class WeeksController < ApplicationController
   # PATCH/PUT /weeks/1
   # PATCH/PUT /weeks/1.json
   def update
-    nickname = Nickname.find(params[:id])
+    nickname = Nickname.find(params[:week][:nickname])
     @week.nickname = nickname
     respond_to do |format|
       if @week.update(week_params)

@@ -10,7 +10,7 @@
         %th Delete
     %tbody
       - @suggestions.each do |suggestion|
-        %tr{onclick: "window.location = \"#{edit_nickname_path(nickname)}\";"}
+        %tr{onclick: "window.location = \"#{edit_suggestion_path(suggestion)}\";"}
           %td= suggestion.name
           %td= suggestion.description
           %td= suggestion.submitter
