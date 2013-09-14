@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20130914163541) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "nicknames", force: true do |t|
     t.string   "name"
     t.text     "comment"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20130914163541) do
     t.datetime "updated_at"
   end
 
-  add_index "nicknames", ["week_id"], name: "index_nicknames_on_week_id"
+  add_index "nicknames", ["week_id"], name: "index_nicknames_on_week_id", using: :btree
 
   create_table "suggestions", force: true do |t|
     t.string   "name"

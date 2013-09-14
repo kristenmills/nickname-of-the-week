@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'csv'
+Time.zone = 'Eastern Time (US & Canada)'
+data = CSV.read(Rails.root.join('db', 'seed_data.csv'))
+data.shift
+
+data.each do |row|
+  Week.create(
+                semester:   row[0],
+                number:     row[1],
+                event:      row[2],
+                start_date: Time.zone.parse(row[3]),
+                end_date:   Time.zone.parse(row[4])
+              )
+end
