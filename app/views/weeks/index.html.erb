@@ -1,0 +1,35 @@
+<h1>Listing weeks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Semester</th>
+      <th>Event</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @weeks.each do |week| %>
+      <tr>
+        <td><%= week.number %></td>
+        <td><%= week.semester %></td>
+        <td><%= week.event %></td>
+        <td><%= week.start_date %></td>
+        <td><%= week.end_date %></td>
+        <td><%= link_to 'Show', week %></td>
+        <td><%= link_to 'Edit', edit_week_path(week) %></td>
+        <td><%= link_to 'Destroy', week, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Week', new_week_path %>
