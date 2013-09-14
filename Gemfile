@@ -42,8 +42,11 @@ gem 'haml'
 
 gem 'rspec'
 
+gem 'simple_form'
+
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
+  gem 'better_errors'
 end
 
 # Use ActiveModel has_secure_password

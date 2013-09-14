@@ -1,0 +1,23 @@
+%h1 Listing suggestions
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th Submitter
+    %th
+    %th
+    %th
+
+  - @suggestions.each do |suggestion|
+    %tr
+      %td= suggestion.name
+      %td= suggestion.description
+      %td= suggestion.submitter
+      %td= link_to 'Show', suggestion
+      %td= link_to 'Edit', edit_suggestion_path(suggestion)
+      %td= link_to 'Destroy', suggestion, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Suggestion', new_suggestion_path

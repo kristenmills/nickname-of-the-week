@@ -1,4 +1,6 @@
 NicknameOfTheWeek::Application.routes.draw do
+  resources :suggestions
+
   resources :nicknames
 
   resources :weeks
