@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @nickname.name
+%p
+  %b Comment:
+  = @nickname.comment
+%p
+  %b Rating:
+  = @nickname.rating
+%p
+  %b Week:
+  = @nickname.week
+
+= link_to 'Edit', edit_nickname_path(@nickname)
+\|
+= link_to 'Back', nicknames_path
