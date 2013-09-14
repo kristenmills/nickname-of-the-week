@@ -1,6 +1,6 @@
 class NicknamesController < ApplicationController
   before_action :set_nickname, only: [:show, :edit, :update, :destroy]
-
+  http_basic_authenticate_with  name: ENV['NICKNAME_USERNAME'], password: ENV['NICKNAME_PASSWORD']
   # GET /nicknames
   # GET /nicknames.json
   def index

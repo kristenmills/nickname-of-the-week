@@ -1,6 +1,6 @@
 class SuggestionsController < ApplicationController
   before_action :set_suggestion, only: [:show, :edit, :update, :destroy]
-
+  http_basic_authenticate_with  name: ENV['NICKNAME_USERNAME'],  password: ENV['NICKNAME_PASSWORD'], except: [:new, :create]
   # GET /suggestions
   # GET /suggestions.json
   def index
