@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Number:
+  = @week.number
+%p
+  %b Semester:
+  = @week.semester
+%p
+  %b Event:
+  = @week.event
+%p
+  %b Start date:
+  = @week.start_date
+%p
+  %b End date:
+  = @week.end_date
+
+= link_to 'Edit', edit_week_path(@week)
+\|
+= link_to 'Back', weeks_path

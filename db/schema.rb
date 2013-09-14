@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130914161103) do
+ActiveRecord::Schema.define(version: 20130914161823) do
+
+  create_table "nicknames", force: true do |t|
+    t.string   "name"
+    t.text     "comment"
+    t.integer  "rating"
+    t.integer  "week_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "nicknames", ["week_id"], name: "index_nicknames_on_week_id"
 
   create_table "weeks", force: true do |t|
     t.integer  "number"

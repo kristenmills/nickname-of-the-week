@@ -32,6 +32,20 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'thin'
+
+gem 'bootstrap-sass-rails'
+
+gem 'haml-rails'
+
+gem 'haml'
+
+gem 'rspec'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
