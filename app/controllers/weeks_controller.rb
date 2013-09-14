@@ -26,7 +26,8 @@ class WeeksController < ApplicationController
   # POST /weeks.json
   def create
     @week = Week.new(week_params)
-
+    nickname = Nickname.find(params[:id])
+    @week.nickname = nickname
     respond_to do |format|
       if @week.save
         format.html { redirect_to @week, notice: 'Week was successfully created.' }
@@ -41,6 +42,8 @@ class WeeksController < ApplicationController
   # PATCH/PUT /weeks/1
   # PATCH/PUT /weeks/1.json
   def update
+    nickname = Nickname.find(params[:id])
+    @week.nickname = nickname
     respond_to do |format|
       if @week.update(week_params)
         format.html { redirect_to @week, notice: 'Week was successfully updated.' }
