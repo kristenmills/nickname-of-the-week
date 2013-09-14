@@ -1,25 +1,37 @@
-= form_for @week do |f|
-  - if @week.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@week.errors.count, "error")} prohibited this week from being saved:"
-      %ul
-        - @week.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :number
-    = f.number_field :number
-  .field
-    = f.label :semester
-    = f.number_field :semester
-  .field
-    = f.label :event
-    = f.text_field :event
-  .field
-    = f.label :start_date
-    = f.datetime_select :start_date
-  .field
-    = f.label :end_date
-    = f.datetime_select :end_date
-  .actions
-    = f.submit 'Save'
+.well
+  = form_for @week, html: {class: 'form-horizontal'} do |f|
+    - if @week.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@week.errors.count, "error")} prohibited this week from being saved:"
+        %ul
+          - @week.errors.full_messages.each do |msg|
+            %li= msg
+    %legend= title
+    .form-group
+      = f.label :semester, class: 'control-label col-lg-2'
+      .col-lg-10
+        = f.number_field :semester, class: 'form-control'
+    .form-group
+      = f.label :number, class: 'control-label col-lg-2'
+      .col-lg-10
+        = f.number_field :number, class: 'form-control'
+    .form-group
+      = f.label :event, class: 'control-label col-lg-2'
+      .col-lg-10
+        = f.text_field :event, class: 'form-control'
+    .form-group
+      = f.label :start_date, class: 'control-label col-lg-2'
+      .col-lg-10
+        =f.datetime_select :end_date
+    .form-group
+      = f.label :end_date, class: 'control-label col-lg-2'
+      .col-lg-10
+        = f.datetime_select :end_date
+    .form-group
+      = f.label 'Nickname', class: 'control-label col-lg-2'
+      .col-lg-10
+        = f.select :nickname, Nickname.all.map{ |l| [l.name, l.id] }, {}, {class: 'form-control'}
+    .form-group
+      .div.col-lg-offset-2.col-lg-10
+        = link_to 'Back', weeks_path , class: 'btn btn-default'
+        = f.submit 'Submit', class: 'btn btn-primary'
