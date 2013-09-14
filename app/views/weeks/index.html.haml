@@ -1,27 +1,20 @@
-%h1 Listing weeks
-
-%table
-  %tr
-    %th Number
-    %th Semester
-    %th Event
-    %th Start date
-    %th End date
-    %th
-    %th
-    %th
-
-  - @weeks.each do |week|
-    %tr
-      %td= week.number
-      %td= week.semester
-      %td= week.event
-      %td= week.start_date
-      %td= week.end_date
-      %td= link_to 'Show', week
-      %td= link_to 'Edit', edit_week_path(week)
-      %td= link_to 'Destroy', week, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Week', new_week_path
+%h1 Weeks
+.table-responsive
+  %table.table.table-hover
+    %thead
+      %tr
+        %th Semester
+        %th Week
+        %th Nickname
+        %th Event
+        %th Start date
+        %th End date
+    %tbody
+      - @weeks.each do |week|
+        %tr{onclick: "window.location = \"#{edit_week_path(week)}\";"}
+          %td= week.semester
+          %td= week.number
+          %td= week.nickname.name if not week.nickname.nil?
+          %td= week.event
+          %td= week.start_date.strftime('%B %d, %Y')
+          %td= week.end_date.strftime('%B %d, %Y')
