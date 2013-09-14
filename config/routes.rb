@@ -1,4 +1,4 @@
-Nickname::Application.routes.draw do
+NicknameOfTheWeek::Application.routes.draw do
   resources :weeks
 
   # The priority is based upon order of creation: first created -> highest priority.

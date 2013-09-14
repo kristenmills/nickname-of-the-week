@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Nickname::Application.load_tasks
+NicknameOfTheWeek::Application.load_tasks

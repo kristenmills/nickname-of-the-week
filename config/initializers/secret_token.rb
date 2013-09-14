@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Nickname::Application.config.secret_key_base = '3e1164f70b3dc85aeaa9aec7fb2176c1184c13858b1a3df844a02f231f54d7d2994a085a79457fbb303f1b5b3ff89a374a21dfaa995db9d9fd3fafb441db4232'
+NicknameOfTheWeek::Application.config.secret_key_base = '3e1164f70b3dc85aeaa9aec7fb2176c1184c13858b1a3df844a02f231f54d7d2994a085a79457fbb303f1b5b3ff89a374a21dfaa995db9d9fd3fafb441db4232'
