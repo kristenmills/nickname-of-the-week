@@ -1,23 +1,17 @@
-%h1 Listing suggestions
+%h1 Suggestions
 
-%table
-  %tr
-    %th Name
-    %th Description
-    %th Submitter
-    %th
-    %th
-    %th
-
-  - @suggestions.each do |suggestion|
-    %tr
-      %td= suggestion.name
-      %td= suggestion.description
-      %td= suggestion.submitter
-      %td= link_to 'Show', suggestion
-      %td= link_to 'Edit', edit_suggestion_path(suggestion)
-      %td= link_to 'Destroy', suggestion, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Suggestion', new_suggestion_path
+.table-responsive
+  %table.table.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Description
+        %th Submitter
+        %th Delete
+    %tbody
+      - @suggestions.each do |suggestion|
+        %tr{onclick: "window.location = \"#{edit_nickname_path(nickname)}\";"}
+          %td= suggestion.name
+          %td= suggestion.description
+          %td= suggestion.submitter
+          %td= link_to 'Destroy', suggestion, :method => :delete, :data => { :confirm => 'Are you sure?' }

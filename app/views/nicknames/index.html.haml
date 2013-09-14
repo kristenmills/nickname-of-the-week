@@ -6,8 +6,8 @@
         %th Name
         %th Comment
         %th Week
-    - @nicknames.each do |nickname|
-      %tbody
+    %tbody
+      - @nicknames.each do |nickname|
         %tr{onclick: "window.location = \"#{edit_nickname_path(nickname)}\";"}
           %td= nickname.name
           %td= nickname.comment
