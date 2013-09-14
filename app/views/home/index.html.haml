@@ -6,7 +6,10 @@
   .container
     =image_tag 'derek.png', class: 'centered'
     %h3.text-center Derek's nickname of the week is:
-    %h1.text-center{style: "font-size: 100.5px"}= @nickname.name
+    - if not @nickname.nil?
+      %h1.text-center{style: "font-size: 100.5px"}= @nickname.name
+    - else
+      %h1.text-center{style: "font-size: 100.5.px"} Nothing right now :(
 %br
 %hr
 =render 'suggestions/form', title: 'Want to suggest a nickname?'
