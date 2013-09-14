@@ -1,22 +1,21 @@
-= form_for @nickname do |f|
-  - if @nickname.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@nickname.errors.count, "error")} prohibited this nickname from being saved:"
-      %ul
-        - @nickname.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :comment
-    = f.text_area :comment
-  .field
-    = f.label :rating
-    = f.number_field :rating
-  .field
-    = f.label :week
-    = f.text_field :week
-  .actions
-    = f.submit 'Save'
+.well
+  = form_for @nickname, html: { class: 'form-horizontal'} do |f|
+    - if @nickname.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@nickname.errors.count, "error")} prohibited this nickname from being saved:"
+        %ul
+          - @nickname.errors.full_messages.each do |msg|
+            %li= msg
+    %legend= title
+    .field
+      = f.label :name, class: 'control-label col-lg-2'
+      .col-lg-10
+        = f.text_field :name, class: 'form-control'
+    .field
+      = f.label :comment, class: 'control-label col-lg-2'
+      .col-lg-10
+        = f.text_area :comment, class: 'form-control'
+      .form-group
+        .div.col-lg-offset-2.col-lg-10
+          = link_to 'Back', nicknames_path , class: 'btn btn-default'
+          = f.submit 'Submit', class: 'btn btn-primary'
