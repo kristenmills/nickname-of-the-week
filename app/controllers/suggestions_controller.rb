@@ -67,7 +67,7 @@ class SuggestionsController < ApplicationController
     respond_to do |format|
       if @nickname.save
         @suggestion.destroy
-        format.html { redirect_to nicknames_path, notice: 'Nickname was succcesfully created. '}
+        format.html { redirect_to suggestions_path, notice: 'Nickname was succcesfully created. '}
         format.json { head :no_content}
       end
     end
