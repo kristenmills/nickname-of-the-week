@@ -4,12 +4,14 @@
     %thead
       %tr
         %th Name
+        %th Submitter
         %th Comment
         %th Week
     %tbody
       - @nicknames.each do |nickname|
         %tr{onclick: "window.location = \"#{edit_nickname_path(nickname)}\";"}
           %td= nickname.name
+          %td= nickname.submitter
           %td= nickname.comment
           - week = nickname.week
           %td= "#{week.semester} - #{week.number}" if not week.nil?

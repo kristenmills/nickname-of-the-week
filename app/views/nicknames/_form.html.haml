@@ -7,15 +7,19 @@
           - @nickname.errors.full_messages.each do |msg|
             %li= msg
     %legend= title
-    .field
+    .form-group
       = f.label :name, class: 'control-label col-lg-2'
       .col-lg-10
         = f.text_field :name, class: 'form-control'
-    .field
+    .form-group
+      = f.label :submitter, class: 'control-label col-lg-2'
+      .col-lg-10
+        = f.text_field :submitter, class: 'form-control'
+    .form-group
       = f.label :comment, class: 'control-label col-lg-2'
       .col-lg-10
         = f.text_area :comment, class: 'form-control'
-      .form-group
-        .div.col-lg-offset-2.col-lg-10
-          = link_to 'Back', nicknames_path , class: 'btn btn-default'
-          = f.submit 'Submit', class: 'btn btn-primary'
+    .form-group
+      .col-lg-offset-2.col-lg-10
+        = link_to 'Back', nicknames_path , class: 'btn btn-default'
+        = f.submit 'Submit', class: 'btn btn-primary'

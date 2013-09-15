@@ -69,6 +69,6 @@ class NicknamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def nickname_params
-      params.require(:nickname).permit(:name, :comment, :rating, :week_id)
+      params.require(:nickname).permit(:name, :comment, :rating, :submitter, :week_id)
     end
 end

@@ -63,7 +63,7 @@ class SuggestionsController < ApplicationController
   end
 
   def nicknameify
-    @nickname = Nickname.new(name: @suggestion.name, comment: @suggestion.description)
+    @nickname = Nickname.new(name: @suggestion.name, comment: @suggestion.description, submitter: @suggestion.submitter)
     respond_to do |format|
       if @nickname.save
         @suggestion.destroy
