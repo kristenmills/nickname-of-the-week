@@ -1,0 +1,13 @@
+!!! 5
+%html
+  %head
+    %meta{content: 'text/html; charset=UTF-8', :'http-equiv' => 'Content-Type'}
+  %body
+    %h1 There has been a new suggestion:
+
+    %h3= @suggestion.name
+
+    %p
+      Go
+      %a{href: suggestions_url } here
+      to view this nickname and other suggestions
