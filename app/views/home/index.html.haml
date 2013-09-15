@@ -7,6 +7,12 @@
       %h1.text-center= @nickname.name
     - else
       %h1.text-center Nothing right now :(
+    %h4.text-right
+      &mdash; Submitted by
+      - if @nickname.submitter.blank?
+        Anonymous
+      - else
+        = @nickname.submitter
 %br
 %hr
 =render 'suggestions/form', title: 'Want to suggest a nickname?'
