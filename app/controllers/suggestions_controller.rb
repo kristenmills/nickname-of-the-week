@@ -1,5 +1,5 @@
 class SuggestionsController < ApplicationController
-  before_action :set_suggestion, only: [:show, :edit, :update, :destroy]
+  before_action :set_suggestion, only: [:show, :edit, :update, :destroy, :nicknameify]
   http_basic_authenticate_with  name: ENV['NICKNAME_USERNAME'],  password: ENV['NICKNAME_PASSWORD'], except: [:new, :create]
   # GET /suggestions
   # GET /suggestions.json
@@ -59,6 +59,17 @@ class SuggestionsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to suggestions_url }
       format.json { head :no_content }
+    end
+  end
+
+  def nicknameify
+    @nickname = Nickname.new(name: @suggestion.name, comment: @suggestion.description)
+    respond_to do |format|
+      if @nickname.save
+        @suggestion.destroy
+        format.html { redirect_to nicknames_path, notice: 'Nickname was succcesfully created. '}
+        format.json { head :no_content}
+      end
     end
   end
 

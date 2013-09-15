@@ -1,5 +1,9 @@
 NicknameOfTheWeek::Application.routes.draw do
-  resources :suggestions
+  resources :suggestions do
+    member do
+      post 'nicknameify'
+    end
+  end
 
   resources :nicknames
 

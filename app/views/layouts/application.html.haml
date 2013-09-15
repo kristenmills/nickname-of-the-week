@@ -8,4 +8,8 @@
 
 %body
   .container
+    %br
+    -if not notice.nil?
+      .alert.alert-success
+        =notice
     = yield
