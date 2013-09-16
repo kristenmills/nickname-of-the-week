@@ -1,7 +1,7 @@
 %br
 .jumbotron
   .container
-    =image_tag 'derek.png', class: 'centered'
+    =image_tag "#{(1..6).to_a.sample}.jpg", class: 'centered'
     %h3.text-center Derek's nickname of the week is:
     - if not @nickname.nil?
       %h1.text-center= @nickname.name
