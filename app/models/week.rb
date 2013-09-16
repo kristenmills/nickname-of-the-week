@@ -1,5 +1,5 @@
 class Week < ActiveRecord::Base
-  default_scope order('created_at ASC')
+  default_scope { order('created_at ASC') }
   has_one :nickname
 
   validates :number, :semester, :start_date, :end_date,
